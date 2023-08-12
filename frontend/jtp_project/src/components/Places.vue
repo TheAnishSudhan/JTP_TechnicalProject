@@ -1,51 +1,50 @@
-<template>
-    <section>
-    <div class="main-header">
+<template >
+  <section >
+  <div class="main-header">
     <div>
-        <h1 class="cool-animation2">TravelMate</h1>
+        <h1 class="cool-animation2">IndiaMate</h1>
     </div>
-    <div>
-        <h2 class="cool-animation3"> &nbsp Where do you want to go?</h2>
+    <div >
+        <h2 class="cool-animation3"> &nbsp Top 10 recommendations</h2>
     </div>
 </div>
-<div class="main-table" style="background-color:#cbdef8">
-    <table class="table table-hover">
+<div style="background-color:#cbdef8;">
+  <div class="main-table" style="background-color:#e1ecfb" >
+    <table class="table table-hover" >
             <thead>
               <tr style="background-color: #ffffff;">
                 <th class="table-cell" scope="col">Place</th>
-                <th class="table-cell" scope="col">Address</th>
+                <th class="table-cell" scope="col">City</th>
+                <th class="table-cell" scope="col">A traveller's review</th>
                 <th></th>
               </tr>
             </thead>
-            <tbody  style="background-color #ffffff;">
-              <tr v-for="(place, index) in places" :key="index">
-                <td>{{ place.name }}</td>
-                <td>{{ place.address }}</td>
+            <tbody>
+              <tr v-for="(recommendation, index) in recommendations" :key="index">
+                <td>{{ recommendation.Place }}</td>
+                <td>{{ recommendation.City }}</td>
+                <td>{{ recommendation.Raw_Review }}</td>
               </tr>
             </tbody>
           </table>
-</div>
-        <div type="button" class="btn btn-primary link-button" style="align: center;">
-          <router-link to="ping" style="color: #ffffff;">Go back</router-link>
+  </div>
+  
+    <div type="button" class="btn btn-primary link-button" style="align: center;">
+          <router-link to="nlp" style="color: #ffffff;">Go back</router-link>
         </div>
-        
 
+</div>
     </section>
   </template>
 
 <script>
-
-function button_redirect()
-{ 
-  this.$router.push('http://localhost:5001/ping');
-}
 
   import axios from 'axios';
   
   export default {
     data() {
       return {
-        places: [],
+        recommendations: [],
       };
     },
     methods: {
@@ -53,7 +52,7 @@ function button_redirect()
         const path = 'http://localhost:5001/places';
         axios.get(path)
           .then((res) => {
-            this.places = res.data.places;
+            this.recommendations = res.data.recommendations;
           })
           .catch((error) => {
             console.error(error);
@@ -70,8 +69,7 @@ function button_redirect()
 <style>
 
 .link-button {
-  margin: 20%;
-  align: center;
+  margin: 5%;
   text-align: center;
 }
 
@@ -93,11 +91,6 @@ section {
   text-align: center;
 }
 
-.form-group {
-    padding: 5%;
-    font-size: 2rem;
-}
-
 template {
     background-color: #cbdef8;
     color: #cbdef8;
@@ -106,14 +99,6 @@ template {
 .btn-primary{
     color: #3b6fb8;
 }
-
-.landing-container {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-background-color: #cbdef8;
-    }
 
 .main-header {
 

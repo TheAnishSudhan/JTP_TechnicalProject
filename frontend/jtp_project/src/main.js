@@ -7,4 +7,12 @@ const app = createApp(App)
 
 app.use(router)
 
+// app.use(router, cors({
+//     'allowedHeaders': ['sessionId', 'Content-Type'],
+//     'exposedHeaders': ['sessionId'],
+//     'origin': '*',
+//     'methods': 'GET,PUT,POST,OPTIONS',
+//     'preflightContinue': false
+//   }));
+
 app.mount('#app')
