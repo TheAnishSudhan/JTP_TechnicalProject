@@ -17,3 +17,7 @@ The project has been primarily organised into the backend and frontend directori
 Run "docker compose up" on the working directory to run the containers and view the project live on the local machine. Ports 5001 and 5173 are set by default. 
 
 NOTE: The dataset can be downloaded from the kaggle link and placed in ./backend/data/ as Review_db.csv to run the code. Due to size constraints (>5400mb) the same was not uploaded. 
+
+NOTE 2: Due to development on Apple silicon, lot of dependencies had to be installed through conda. As such, these when listed in the requirements.txt file break the docker image from building. The problem persists and the recourse seems to be raising warnings or exceptions when encountering these packages. 
+
+https://github.com/ploomber/soopervisor/issues/67 Mentions a potential workflow workaround. 
