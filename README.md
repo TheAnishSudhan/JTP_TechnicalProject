@@ -1,11 +1,17 @@
 # JTP_TechnicalProject
- 
-This project uses Vue JS for the front end wherein user input is taken to understand the user's location of travel destination, their place of search and the number of options to be displayed. 
 
-The frontend is connected to a backend powered by flask, using APIs from Geoapify.com. 
+This is a travel destinatioon recommendation webapp. 
 
-Two APIs are used - the first retrieves a place(id for the location inputted, and the second retrieves the places of interest as per the place_id abding by the limit opted by the user. 
+It asks the user to describe the kind of place they wish to visit, and on querying a subset database (~40000 records) of rated places in India, it provides the user with top 10 recommendations. 
 
-The project has two separate docker containers - one for the backend running on node and the other for the front end running on flask. 
+The project uses NLP for the recommendation process, tokenising the reviews made by travellers for various popular destinations, applying TFIDF vectorisation and then comparing the cosine similarity with the user input post similar processing. 
 
-RUn "docker compose up" on the working directory to run the containers and view the project live on the local machine.
+The database used is from https://www.kaggle.com/datasets/ritvik1909/indian-places-to-visit-reviews-data . However, only reviews with ratings of 5 stars were extracted and the dataset was limitedto top 40000 indices (ordered lexicographically), hence the recommendation engine would have a major regional bias. 
+
+Furthermore, since the database contained cleaned data, preprocessing such as lemmatisation, stemming and removal os stopwords need not be done. However, certain level of preprocessing had to be done for the user input. 
+
+Additionally, an approach of topic modelling using Non-negative Matrix Factorisation (NMF) had been attempted, however it has been commented out. 
+
+The project has been primarily organised into the backend and frontend directories. Flask has been utilised for implementing the backend while VueJS/Node has been chosen for the frontend. Axios has been used for the HTTP requests and separate docker containers have been built for each directory linked through docker compose.  
+
+RUn "docker compose up" on the working directory to run the containers and view the project live on the local machine. Ports 5001 and 5173 are set by default. 
