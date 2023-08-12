@@ -1,19 +1,21 @@
 from flask import Flask, jsonify, request, render_template, abort
 from flask_cors import CORS, cross_origin 
-from ner import recommend_place
+from ner import recommend_place #Imports the main function from the python file having the NLP logic
+
+#App rendering starts here
 app = Flask(__name__)
 app.config.from_object(__name__)
 
+#To allow requests from other origins to be permitted, especially for POST requests
 CORS(app)
 
-
-import requests
-from requests.structures import CaseInsensitiveDict
-
+#To store the user input to be used for querying the dataset for the GET request
 cumulative_recommendations = ['x']
 
 @app.route('/places', methods=['GET'])
 def submit_form():
+
+    #Calls the NLP function
     recommendations = recommend_place(cumulative_recommendations[0])
 
     # For testing purposes

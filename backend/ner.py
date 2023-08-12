@@ -15,13 +15,16 @@ from sklearn.decomposition import NMF
 import re
 
 #Run them once to download the dependencies
-# nltk.download('stopwords')
-# nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('punkt')
 
 # warnings.filterwarnings('ignore')
 
 #Reading the dataset into a dataframe
-raw_data = pd.read_csv('./data/Review_db.csv')
+#Download the dataset from kaggle and place it into the data subdirectory
+raw_data_csv = pd.read_csv('./data/Review_db.csv')
+raw_data_csv.to_pickle('./data/Review_db.pkl')   
+raw_data = pd.read_pickle('./data/Review_db.pkl') 
 
 # The dataset used consists of cleaned (lemmatised, stemmed) review data, hence there is no need for preprocessing
 cleaned_data = raw_data[['City','Place','Review','Raw_Review','Rating']]
