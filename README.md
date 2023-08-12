@@ -14,4 +14,6 @@ Additionally, an approach of topic modelling using Non-negative Matrix Factorisa
 
 The project has been primarily organised into the backend and frontend directories. Flask has been utilised for implementing the backend while VueJS/Node has been chosen for the frontend. Axios has been used for the HTTP requests and separate docker containers have been built for each directory linked through docker compose.  
 
-RUn "docker compose up" on the working directory to run the containers and view the project live on the local machine. Ports 5001 and 5173 are set by default. 
+Run "docker compose up" on the working directory to run the containers and view the project live on the local machine. Ports 5001 and 5173 are set by default. 
+
+NOTE: The dataset can be downloaded from the kaggle link and placed in ./backend/data/ as Review_db.csv to run the code. Due to size constraints (>5400mb) the same was not uploaded. 
