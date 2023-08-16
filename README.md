@@ -15,13 +15,15 @@ The project has been organised into the backend and frontend directories. Flask 
 
 ## Running the Project
 
+Download the project (as a zip file) or fork it to your own repository. Place it an appropriate local directory.
+
 Due to size constraints (>540mb) the dataset has not been uploaded to github. The dataset can be downloaded from the aforementioned kaggle link and placed in ./backend/data/ as Review_db.csv to run the code. 
 
-Run "docker-compose up -d --build" from the main directory. 
+Navigate to the directory where the project has been downloaded/forked. Run "docker-compose up -d --build" from the main directory. 
 
-Run "docker compose up" on the same working directory.This would run the containers and the project would be made live on the local machine. Ports 5001(flask) and 5173(node) are set by default.
+Run "docker compose up" in the same working directory. This would run the containers and the project would be made live on the local machine. Ports 5001(flask) and 5173(node) are set by default.
 
-Navigate to url http://0.0.0.0:5173/nlp to view the project. 
+Navigate to the url http://0.0.0.0:5173/nlp on your browser to view the project. 
 
 NOTE 1: On submitting the input on http://0.0.0.0:5173/nlp, the user must click the "Submit" button and then click on the "Get Results" button. This would redirect the user to http://0.0.0.0:5173/places. However, due to the size of the dataset and the lack of optimisations, it takes a few minutes for the results to load. The same can be observed by inspecting the elements of the page via the developer console. 
 
