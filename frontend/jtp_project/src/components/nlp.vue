@@ -53,7 +53,7 @@ export default {
         user_input: this.user_input,
       };
       try {
-        const response = await axios.post('http://localhost:5001/nlp', formData, axiosConfig)
+        const response = await axios.post('http://0.0.0.0:5001/nlp', formData, axiosConfig)
         .then((res) => {
             console.log("RESPONSE RECEIVED: ", res);
         })

@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template, abort
+from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin 
 from ner import recommend_place #Imports the main function from the python file having the NLP logic
 
@@ -35,4 +35,4 @@ def recommend():
     return jsonify({'status': 'success'})
 
 if __name__ == '__main__':
-    app.run(port=5001)
+    app.run(port=5001, debug=True, host="0.0.0.0")

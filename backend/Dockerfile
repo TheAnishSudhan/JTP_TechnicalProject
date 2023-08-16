@@ -1,15 +1,8 @@
-# FROM python:3.10
-# WORKDIR /app
-# COPY requirements.txt ./
-# RUN pip install -r requirements.txt
-# COPY . .
-# EXPOSE 5001
-# CMD [ "flask", "run", "--port", "5000" ]
-
 FROM python:3.10
 WORKDIR /app
-COPY . /app
-RUN pip install -r requirements.txt
+COPY reqs.txt ./
+RUN pip3 install -r reqs.txt
+COPY . ./
 EXPOSE 5001
 ENTRYPOINT [ "python3" ]
 CMD [ "app.py"]

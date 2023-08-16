@@ -49,7 +49,7 @@
     },
     methods: {
       getPlaces() {
-        const path = 'http://localhost:5001/places';
+        const path = 'http://0.0.0.0:5001/places';
         axios.get(path)
           .then((res) => {
             this.recommendations = res.data.recommendations;
